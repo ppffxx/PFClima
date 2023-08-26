@@ -17,21 +17,52 @@
             </div> 
         </div>
 
-        <div class="div-cont-tres">
-            <div>
-                <h1 class="min-max">MIN: {{forecastCity?.forecast[0]?.temp_min}} ºC</h1>
-                <h2 class="min-max">MAX: {{forecastCity?.forecast[0]?.temp_max}} ºC</h2>
+        <div class="div-cards-details">
+            <div class="card-details">
+                <span class="title-card-details">Humedad</span>
+                <div class="div-content-card">
+                    <span class="content-card-details">{{dataCity?.humidity}}</span>
+                    <span class="content-card-index">%</span>
+                </div>
             </div>
-            <div>
-                <h3 class="text-otros">H: {{dataCity?.humidity}}%</h3>
-                <h3 class="text-otros">V: {{dataCity?.wind?.speed}} km/h</h3>
-                <h3 class="text-otros">P: {{dataCity?.pressure}} hPa</h3>
+            <div class="card-details">
+                <span class="title-card-details">Viento</span>
+                <div class="div-content-card">
+                    <span class="content-card-details">{{dataCity?.wind?.speed}}</span>
+                    <span class="content-card-index">km/h</span>
+                </div>
+            </div>
+            <div class="card-details">
+                <span class="title-card-details">Presion</span>
+                <div class="div-content-card">
+                    <span class="content-card-details">{{dataCity?.pressure}}</span>
+                    <span class="content-card-index">hPa</span>
+                </div>
+            </div>
+            <div class="card-details">
+                <span class="title-card-details">Visibilidad</span>
+                <div class="div-content-card">
+                    <span class="content-card-details">{{dataCity?.visibility}}</span>
+                    <span class="content-card-index">km</span>
+                </div>
+            </div>
+            <div class="card-details">
+                <span class="title-card-details">Amanecer/Atardecer</span>
+                <div class="div-content-card">
+                    <span class="content-card-details sunrise-sunset"> ↑ {{sunriseSunset?.sun?.sunrise}}</span>
+                    <span class="content-card-index">hs</span>
+                </div>
+                <div class="div-content-card">
+                    <span class="content-card-details sunrise-sunset"> ↓ {{sunriseSunset?.sun?.sunset}}</span>
+                    <span class="content-card-index">hs</span>
+                </div>
             </div>
         </div>
+
     </div>
 
 
-    <div class="forecast-city">
+    <!-- <div class="forecast-city">
         <div>
             <button class="forecast-button" (click)="idForecast= 1">{{forecastCity?.forecast[1]?.date | date:'EE' | uppercase}}</button>
             <button class="forecast-button" (click)="idForecast= 2">{{forecastCity?.forecast[2]?.date | date:'EE' | uppercase}}</button>
@@ -59,5 +90,5 @@
             <span>Humedad: {{forecastCity?.forecast[idForecast]?.afternoon.humidity}} %</span>
             </div>
         </div>
-        </div>
+        </div> -->
 </div>

@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   currentDateTime!: Date;
   alerts:any;
   existeAlerta = false;
+  sunriseSunset: any;
 
   
   locations: any;
@@ -69,6 +70,16 @@ export class HomeComponent implements OnInit {
 
     this.apiSMN.getDataByCity(9117).subscribe(data => {
       this.dataCity = data;
+      console.log(this.dataCity)
+    })
+
+    this.apiSMN.getSunrise(9117).subscribe(data => {
+      console.log(data)
+      this.sunriseSunset = data;
+    })
+
+    this.dataService.sunrise$.subscribe(data => {
+      this.sunriseSunset = data;
     })
 
     this.dataService.dataCity$.subscribe(data => {

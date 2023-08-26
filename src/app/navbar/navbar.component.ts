@@ -36,6 +36,10 @@ export class NavbarComponent {
       this.dataService.updateForecastCity(data);
     })
 
+    this.apiSMN.getSunrise(base).subscribe(data => {
+      this.dataService.updateSunrise(data);
+    })
+
   }
 
 }

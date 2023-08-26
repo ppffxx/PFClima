@@ -1,20 +1,26 @@
 .container-city {
     width: 100%;
-    height: 40vh;
+    height: 90vh;
     background-color: #313131;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    flex-direction: column;
 }
 
 .widget-city {
     color: white;
-    width: 50%;
-    height: 80%;
-    background-color: rgb(70, 70, 70);
+    width: 90%;
+    height: 90%;
+    /* background-color: rgb(70, 70, 70); */
     border-radius: 30px;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    padding: 20px;
+    /* background-image: url('/assets/background.jpg');
+    background-size: cover; */
+    background-color: rgb(232, 231, 231);
 }
 
 .forecast-city {
@@ -148,14 +154,13 @@
 
 .div-cont-uno {
     display: flex;
-    flex-direction: column;
-    width: 70%;
+    padding: 25px;
 }
 
 .uno-titulos{
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 90vh;
     height: auto;
     border-radius: 30px 0px 0px 0px;
 }
@@ -163,20 +168,24 @@
 .titulos-ciudad {
     margin: 25px 20px 0px 30px;
     padding: 0px;
+    font-size: 3rem;
 }
 
 .titulos-provincia {
-    font-size: 20px;
-    font-weight: 300;
+    font-size: 30px;
+    font-weight: 100;
     margin: 0px 0px 15px 30px;
 }
 
 .div-cont-dos {
-    width: 100%;
-    height: 100%;
+    width: 100vh;
+    height: 30vh;
     display: flex;
-    justify-content: space-evenly;
-    border-radius: 0px 0px 0px 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    /* background-color: rgb(156, 46, 46); */
+    color: white;
 }
 
 .dos-grados {
@@ -207,8 +216,8 @@
 
 .img-clima {
     margin: 0px;
-    width: 110px;
-    height: 110px;
+    width: 150px;
+    height: 150px;
 }
 
 .descripcion-clima {
@@ -248,14 +257,53 @@
 }
 
 
+.div-cards-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
 
+.card-details {
+    margin: 10px;
+    width: 200px;
+    height: 150px;
+    background-color: rgb(243, 243, 243);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
 
-.div-menormayor>button {
-    width: 300px;
-    height: 50px;
-    border-radius: 10px;
-    font-family: 'REM';
-    font-weight: 700;
-    font-size: 15px;
-    cursor: pointer;
+.title-card-details {
+    font-size: 1.1rem;
+    font-weight: 100;
+    color: #6b6b6b;
+}
+
+.content-card-details {
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: black;
+}
+
+.content-card-index {
+    color: black;
+    font-weight: 300;
+    font-size: 25px;
+    margin-left: 5px;
+}
+
+.content-card-details-sub {
+    font-size: 1.1rem;
+    color: black;
+    font-weight: 800;
+}
+
+.div-content-card {
+    margin-top: 20px;
+}
+
+.sunrise-sunset {
+    font-size: 1.5em;
 }
