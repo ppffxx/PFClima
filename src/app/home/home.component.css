@@ -1,12 +1,92 @@
+
+
+
+.container-city {
+    width: 100%;
+    height: 40vh;
+    background-color: #313131;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.widget-city {
+    color: white;
+    width: 50%;
+    height: 80%;
+    background-color: rgb(70, 70, 70);
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.forecast-city {
+    width: 40%;
+    height: 80%;
+    background-color: rgb(104, 104, 104);
+    border-radius: 30px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.forecast-button {
+    height: 30px;
+    width: 120px;
+    border-radius: 15px;
+    border: 0px transparent;
+    margin: 15px;
+    font-family: 'REM';
+    font-weight: 700;
+}
+
+.dia-temps {
+    width: 75%;
+    height: 35px;
+    background-color: rgb(58, 58, 58);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    font-size: 20px;
+    border-radius: 20px;
+    margin: 0px 0px 10px 0px; 
+}
+
+.forecast-button:hover{
+    cursor: pointer;
+    background-color: #313131;
+    color: white;
+}
+
+.detalle-pronostico {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.pronostico {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(66, 66, 66);
+    padding: 10px;
+    border-radius: 20px;
+    width: 300px;
+}
+
 .container-clima {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     background-color: #313131;
+    width: 100%;
+    height: auto;
 }
 
 .cards-clima {
-    width: 29%;
+    width: 20%;
     height: auto;
     margin: 40px;
     border-radius: 50px 50px 30px 30px;
@@ -24,13 +104,13 @@
 }
 
 .header-nombres>h1 {
-    font-size: 3vh;
+    font-size: 2.5vh;
     padding: 10px 30px 0px 30px;
     margin: 10px 0px;
 }
 
 .header-nombres>h2 {
-    font-size: 1.8vh;
+    font-size: 1.5vh;
     font-weight: 400;
     padding: 0px 0px 30px 30px;
     margin: 0px;
@@ -44,13 +124,13 @@
     width: 100%;
     height: auto;
     border-radius: 0px 0px 30px 30px;
-    padding: 30px 0px;
+    padding: 10px 0px;
     color: white;
     gap: 5px;
 }
 
 .despejado-claro {
-    background-color: #D6AF4D;
+    background-color: #cfaa65;
 }
 
 .viento-claro{
@@ -58,11 +138,11 @@
 }
 
 .nublado-claro {
-    background-color: #a8a8a8;
+    background-color: #919191;
 }
 
 .niebla-claro {
-    background-color: #7a7776;
+    background-color: #5f5958;
 }
 
 .lluvia-claro {
@@ -81,28 +161,34 @@
     background-color: #839B9E;
 }
 
+.despejado-noche {
+    background-color: #3a3c3f;
+}
 .icon-clima {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
 }
 
 .div-datos>h1 {
-    font-size: 60px;
+    font-size: 4vh;
     font-weight: 700;
     width: 100%;
     text-align: center;
+    margin: 0px;
 }
 
 .div-datos>h2 {
-    font-size: 25px;
+    font-size: 2vh;
     font-weight: 400;
     text-align: center;
 }
 
 .div-datos>h3 {
-    font-size: 20px;
+    font-size: 2vh;
     text-align: center;
     margin-bottom: 10px;
+    margin-top: 0px;
+    font-weight: 500;
 }
 
 .div-datos>h4 {
@@ -110,4 +196,177 @@
     font-size: 18px;
     text-align: center;
     font-weight: 400;
+}
+
+
+.div-cont-uno {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.uno-titulos{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    border-radius: 30px 0px 0px 0px;
+}
+
+.titulos-ciudad {
+    margin: 25px 20px 0px 30px;
+    padding: 0px;
+}
+
+.titulos-provincia {
+    font-size: 20px;
+    font-weight: 300;
+    margin: 0px 0px 15px 30px;
+}
+
+.div-cont-dos {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 0px 0px 0px 30px;
+}
+
+.dos-grados {
+    text-align: center;
+    width: 50%;
+}
+
+.dos-temp {
+    font-size: 80px;
+    text-align: center;
+    margin: 0px 0px 0px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.dos-st {
+    font-size: 25px;
+    margin: 0px 0px 0px 20px;
+}
+
+.dos-descripcion {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.img-clima {
+    margin: 0px;
+    width: 110px;
+    height: 110px;
+}
+
+.descripcion-clima {
+    margin: 0px;
+    font-size: 15px;
+    text-align: center;
+}
+
+.div-cont-tres {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    border-radius: 0px 30px 30px 0px;
+    margin: 20px 30px 20px 0px;
+    justify-content: space-between;
+}
+
+.div-cont-tres>* {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.min-max {
+    font-size: 20px;
+}
+
+.text-otros {
+    font-size: 15px;
+}
+
+
+.celsius {
+    font-size: 40px;
+    text-align: end;
+}
+
+
+/* .input-search {
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+    margin: 30px;
+    border: 1px solid #929292;
+} */
+
+
+.div-localidades {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(66, 66, 66);
+    align-items: center;
+}
+
+.locations-ngIf {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 75px;
+}
+
+.locations-button {
+    width: 405px;
+    height: 50px;
+    z-index: 10;
+    font-family: 'REM';
+    font-weight: 800;
+    border-radius: 5px;
+    border: 1px solid rgba(133, 133, 133, 0.377);
+}
+
+.locations-button:hover{
+    cursor: pointer;
+    background-color: #bec1c2;
+}
+
+.input-searchCity {
+    font-family: 'REM';
+    font-weight: 800;
+    width: 400px;
+    height: 50px;
+    border-radius: 10px;
+    margin: 20px;
+    font-size: 15px;
+}
+
+.input-searchCity:focus {
+    outline: none;
+}
+
+
+.div-menormayor {
+    width: 100%;
+    background-color: #313131;
+    display: flex;
+    justify-content: center;
+}
+
+.div-menormayor>button {
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+    font-family: 'REM';
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
 }
