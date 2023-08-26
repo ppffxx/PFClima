@@ -1,31 +1,19 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { DataserviceService } from '../services/dataservice.service';
-import { SmnApiService } from '../services/smn-api.service';
-
+import { Component, OnInit } from '@angular/core';
+import { DataserviceService } from 'src/app/services/dataservice.service';
+import { SmnApiService } from 'src/app/services/smn-api.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-cities',
+  templateUrl: './cities.component.html',
+  styleUrls: ['./cities.component.css']
 })
-export class HomeComponent implements OnInit {
-  
-  constructor(private apiSMN: SmnApiService, private dataService: DataserviceService) {}
+export class CitiesComponent implements OnInit {
 
-  idForecast = 1;
-
+  currentDateTime = new Date();
   
-  dataCity: any;
-  forecastCity: any;
-  currentDateTime!: Date;
-  alerts:any;
-  existeAlerta = false;
+  sortOrderAscending = true;
+  allData: any;
 
-  
-  locations: any;
-  selectedLocation: any;
-
-  
   classByDescription: {[descripcion:string]: string} = {
     "lluvia": "lluvia-claro",
     "nevada": "nevadas-claro",
@@ -51,7 +39,6 @@ export class HomeComponent implements OnInit {
     "Nevadas": "nevadas-claro",
     "Ventisca": "ventisca-claro"
   }
-  
 
   iconByDescription: {[descripcion:string]: number} = {
     "Despejado": 5,
@@ -62,45 +49,38 @@ export class HomeComponent implements OnInit {
     "Chaparrones": 75
   }
 
-
+  constructor(private apiSMN: SmnApiService, private dataService: DataserviceService) {}
+  
+  
   ngOnInit(): void {
 
-    this.currentDateTime = new Date();
+    this.apiSMN.getAllData().subscribe(data => {
+      this.allData = data;
 
-    this.apiSMN.getDataByCity(9117).subscribe(data => {
-      this.dataCity = data;
+      this.allData.sort((a: { temperature: number; }, b: { temperature: number; }) => {
+        if (this.sortOrderAscending) {
+          return a.temperature - b.temperature; // Orden ascendente
+        } else {
+          return b.temperature - a.temperature; // Orden descendente
+        }
+      });
+
     })
-
-    this.dataService.dataCity$.subscribe(data => {
-      this.dataCity = data;
-    });
-
-    this.dataService.forecastCity$.subscribe(data => {
-      this.forecastCity = data;
-    });
-
-    this.apiSMN.getAlerts(4856).subscribe(data => {
-      this.alerts = data;
-      if(this.alerts.reports !='') {
-        this.existeAlerta = true;
-      } else {
-        this.existeAlerta = false;
-      }
-    })
-
-    this.apiSMN.getForecastByCity(9117).subscribe(data => {
-      this.forecastCity = data;
-      console.log(this.forecastCity)
-    })
-
     
-    
-
-    
-
   }
 
 
+  sort() {
+    this.sortOrderAscending=!this.sortOrderAscending;
+    this.allData.sort((a: { temperature: number; }, b: { temperature: number; }) => {
+      if (this.sortOrderAscending) {
+        return a.temperature - b.temperature; // Orden ascendente
+      } else {
+        return b.temperature - a.temperature; // Orden descendente
+      }
+    });
+
+  }
 
   getClassByDescription(description: string | null):string {
     const keys = Object.keys(this.classByDescription);
@@ -114,19 +94,6 @@ export class HomeComponent implements OnInit {
     }
     return "nublado-claro";
   }
-  
-
-
-  getClassByDescriptionForecast(description: string | null):string {
-    const keys = Object.keys(this.classByDescription);
-    for (const key of keys) {
-      if (description?.includes(key)) {
-        return this.classByDescription[key];
-      }
-    }
-    return "nublado-claro";
-  }
-
 
   geticonByDescription(description: string, icon:string):string {
     const keys = Object.keys(this.iconByDescription);
@@ -140,5 +107,4 @@ export class HomeComponent implements OnInit {
     return icon;
   }
 
-  
 }

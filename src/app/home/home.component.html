@@ -1,47 +1,3 @@
-<!-- 
-<input type="text" name="" id="" placeholder="Ingresa tu ciudad" [(ngModel)]="inputValue" (input)="searchLocation()" class="input-search">
-<div *ngIf="locations != null">
-    <select name="" id="" [(ngModel)]="selectedLocation" (ngModelChange)="getDataBySelected()">
-        <optgroup label="ciudad">
-            <option value="{{location[0]}}" *ngFor="let location of locations">
-                {{location[1]}} ({{location[2]}}) - {{location[3]}}
-            </option>
-        </optgroup>
-    </select>
-</div>
--->
-
-<!-- <div class="div-localidades">
-    <input type="text" name="" id="" placeholder="Ingresa tu ciudad" [(ngModel)]="inputValue" (input)="searchLocation()" class="input-search">
-    <div *ngIf="locations != null" class="locations-ngIf">
-    <button *ngFor="let location of locations" (click)="getDataBySelectedV2(location[0])" class="locations-button">
-        {{location[1]}} ({{location[2]}}) - {{location[3]}}
-    </button>
-    </div>
-</div> -->
-
-<!-- <div class="div-localidades">
-    <input type="text" name="" id="" placeholder="Ingresa tu ciudad" [(ngModel)]="inputValue" (input)="searchLocation()" class="input-search">
-    <select *ngIf="locations != null" class="locations-ngIf" size="{{locations.length>4? 4 : locations.length+1}}">
-    <optgroup label="Ciudad">
-        <option *ngFor="let location of locations" (click)="getDataBySelectedV2(location[0])" class="locations-button">
-            {{location[1]}} ({{location[2]}}) - {{location[3]}}
-        </option>
-    </optgroup>
-    </select>
-</div> -->
-
-<div class="div-localidades">
-    <input type="text" name="" id="" placeholder="Ingresa tu ciudad" [(ngModel)]="inputValue" (input)="searchLocation()" class="input-searchCity">
-    <div *ngIf="locations != null" class="locations-ngIf">
-      <button *ngFor="let location of locations" (click)="getDataBySelectedV2(location[0], location)" class="locations-button">
-        {{location[1]}} ({{location[2]}}), {{location[3]}}
-      </button>
-    </div>
-  </div>
-
-
-
 <div class="container-city">
     <div class="widget-city" [ngClass]="getClassByDescription(dataCity?.weather?.description)">
         <div class="div-cont-uno">
@@ -56,13 +12,11 @@
                 </div>
                 <div class="dos-descripcion">
                     <img src="http://ws1.smn.gob.ar/sites/all/themes/smn/img/weather-icons/{{geticonByDescription(dataCity?.weather?.description, dataCity?.weather?.id)}}.png" alt="Imagen del clima" class="img-clima">
-                    <!-- <img src="http://ws1.smn.gob.ar/sites/all/themes/smn/img/weather-icons/{{dataCity?.weather?.id}}.png" alt="Imagen del clima" class="img-clima"> -->
                     <h2 class="descripcion-clima">{{dataCity?.weather?.description}}</h2>
                 </div>
-            </div>
-
-            
+            </div> 
         </div>
+
         <div class="div-cont-tres">
             <div>
                 <h1 class="min-max">MIN: {{forecastCity?.forecast[0]?.temp_min}} ºC</h1>
@@ -74,10 +28,9 @@
                 <h3 class="text-otros">P: {{dataCity?.pressure}} hPa</h3>
             </div>
         </div>
-        <div>
-
-        </div>
     </div>
+
+
     <div class="forecast-city">
         <div>
             <button class="forecast-button" (click)="idForecast= 1">{{forecastCity?.forecast[1]?.date | date:'EE' | uppercase}}</button>
@@ -86,49 +39,25 @@
             <button class="forecast-button" (click)="idForecast= 4">{{forecastCity?.forecast[4]?.date | date:'EE' | uppercase}}</button>
             <button class="forecast-button" (click)="idForecast= 5">{{forecastCity?.forecast[5]?.date | date:'EE' | uppercase}}</button>
         </div>
+        
         <div class="dia-temps">
             <span>{{forecastCity?.forecast[idForecast]?.date | date:'EEEE' | uppercase}} - MIN: {{forecastCity?.forecast[idForecast]?.temp_min}}ºC | MAX: {{forecastCity?.forecast[idForecast]?.temp_max}}ºC</span>
         </div>
 
         <div class=detalle-pronostico>
-    <div class="pronostico" [ngClass]="getClassByDescriptionForecast(forecastCity?.forecast[idForecast]?.morning?.weather.description)">
-        <span>Mañana</span>
-        <img src="http://ws1.smn.gob.ar/sites/all/themes/smn/img/weather-icons/{{forecastCity?.forecast[idForecast]?.morning?.weather?.id}}.png" alt="" class="icon-clima">
-        <span>{{forecastCity?.forecast[idForecast]?.morning?.weather.description}}</span>
-        <!-- <span>Viento: {{forecastCity?.forecast[idForecast]?.morning.wind.speed_range[0]}} - {{forecastCity?.forecast[idForecast]?.morning.wind.speed_range[1]}} km/h | {{forecastCity?.forecast[idForecast]?.morning.wind.direction}}</span> -->
-        <span>Humedad: {{forecastCity?.forecast[idForecast]?.morning.humidity}} %</span>
-    </div>
-    <div class="pronostico" [ngClass]="getClassByDescriptionForecast(forecastCity?.forecast[idForecast]?.afternoon.weather.description)">
-        <span>Tarde</span>
-        <img src="http://ws1.smn.gob.ar/sites/all/themes/smn/img/weather-icons/{{forecastCity?.forecast[idForecast]?.afternoon?.weather?.id}}.png" alt="" class="icon-clima">
-        <span>{{forecastCity?.forecast[idForecast]?.afternoon?.weather.description}}</span>
-        <!-- <span>Viento: {{forecastCity?.forecast[idForecast]?.morning.wind.speed_range[0]}} - {{forecastCity?.forecast[idForecast]?.morning.wind.speed_range[1]}} km/h | {{forecastCity?.forecast[idForecast]?.morning.wind.direction}}</span> -->
-        <span>Humedad: {{forecastCity?.forecast[idForecast]?.afternoon.humidity}} %</span>
-    </div>
-</div>
-    </div>
-</div>
-
-<div class="div-menormayor">
-    <button (click)="sort()">Ordenar por {{sortOrderAscending? 'mayor': 'menor'}} temperatura</button>
-</div>
-
-<div class="container-clima">
-    <div *ngFor="let data of allData" class="cards-clima">
-        <div class="header-nombres">
-            <h1>{{data?.location?.name}}</h1>
-            <h2>{{data?.location?.province}}</h2>
+            <div class="pronostico" [ngClass]="getClassByDescriptionForecast(forecastCity?.forecast[idForecast]?.morning?.weather.description)">
+                <span>Mañana</span>
+                    <img src="http://ws1.smn.gob.ar/sites/all/themes/smn/img/weather-icons/{{forecastCity?.forecast[idForecast]?.morning?.weather?.id}}.png" alt="" class="icon-clima">
+                <span>{{forecastCity?.forecast[idForecast]?.morning?.weather.description}}</span>
+                <span>Humedad: {{forecastCity?.forecast[idForecast]?.morning.humidity}} %</span>
+            </div>
+    
+            <div class="pronostico" [ngClass]="getClassByDescriptionForecast(forecastCity?.forecast[idForecast]?.afternoon.weather.description)">
+            <span>Tarde</span>
+            <img src="http://ws1.smn.gob.ar/sites/all/themes/smn/img/weather-icons/{{forecastCity?.forecast[idForecast]?.afternoon?.weather?.id}}.png" alt="" class="icon-clima">
+            <span>{{forecastCity?.forecast[idForecast]?.afternoon?.weather.description}}</span>
+            <span>Humedad: {{forecastCity?.forecast[idForecast]?.afternoon.humidity}} %</span>
+            </div>
         </div>
-        <div class="div-datos" [ngClass]="getClassByDescription(data?.weather?.description)">
-            <img src="http://ws1.smn.gob.ar/sites/all/themes/smn/img/weather-icons/{{geticonByDescription(data?.weather?.description, data.weather.id)}}.png" alt="Imagen del clima" class="icon-clima">
-            <h1>{{data.temperature}} ºC <!--<ng-container *ngIf="data.feels_like !== null"> (ST: {{ data.feels_like }} ºC)</ng-container>--></h1>
-            <h3>{{data.weather.description}}</h3>
-            <!-- <div *ngIf="existeAlerta">
-                ATTENZIONE PICKPOCKET
-            </div> -->
-            <!-- <i class="fas fa-humidity"></i>
-            <h4>Humedad: {{data.humidity}}%</h4>
-            <h4>Viento: {{data.wind.direction}} a {{data.wind.speed}} km/h</h4> -->
         </div>
-    </div>
 </div>

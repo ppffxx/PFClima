@@ -1,0 +1,53 @@
+.div-navbar {
+    display: flex;
+    width: 100%;
+    background-color: rgb(66, 66, 66);
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-button {
+    width: 150px;
+    height: 50px;
+    margin: 20px;
+    border-radius: 10px;
+    font-family: 'REM';
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.input-searchCity {
+    font-family: 'REM';
+    font-weight: 800;
+    width: 400px;
+    height: 50px;
+    border-radius: 10px;
+    margin: 20px;
+    font-size: 15px;
+}
+
+.input-searchCity:focus {
+    outline: none;
+}
+
+.locations-ngIf {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 75px;
+}
+
+.locations-button {
+    width: 405px;
+    height: 50px;
+    z-index: 10;
+    font-family: 'REM';
+    font-weight: 800;
+    border-radius: 5px;
+    border: 1px solid rgba(133, 133, 133, 0.377);
+}
+
+.locations-button:hover{
+    cursor: pointer;
+    background-color: #bec1c2;
+}

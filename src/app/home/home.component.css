@@ -1,6 +1,3 @@
-
-
-
 .container-city {
     width: 100%;
     height: 40vh;
@@ -76,58 +73,11 @@
     width: 300px;
 }
 
-.container-clima {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    background-color: #313131;
-    width: 100%;
-    height: auto;
-}
-
-.cards-clima {
-    width: 20%;
-    height: auto;
-    margin: 40px;
-    border-radius: 50px 50px 30px 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.header-nombres{
-    background-color: #3a3a3a;
-    width: 100%;
-    height: auto;
-    border-radius: 30px 30px 0px 0px;
-    color: white;
-}
-
-.header-nombres>h1 {
-    font-size: 2.5vh;
-    padding: 10px 30px 0px 30px;
-    margin: 10px 0px;
-}
-
-.header-nombres>h2 {
-    font-size: 1.5vh;
-    font-weight: 400;
-    padding: 0px 0px 30px 30px;
-    margin: 0px;
-}
 
 
-.div-datos {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: auto;
-    border-radius: 0px 0px 30px 30px;
-    padding: 10px 0px;
-    color: white;
-    gap: 5px;
-}
+
+
+
 
 .despejado-claro {
     background-color: #cfaa65;
@@ -164,10 +114,7 @@
 .despejado-noche {
     background-color: #3a3c3f;
 }
-.icon-clima {
-    width: 100px;
-    height: 100px;
-}
+
 
 .div-datos>h1 {
     font-size: 4vh;
@@ -301,65 +248,7 @@
 }
 
 
-/* .input-search {
-    width: 300px;
-    height: 50px;
-    border-radius: 10px;
-    margin: 30px;
-    border: 1px solid #929292;
-} */
 
-
-.div-localidades {
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(66, 66, 66);
-    align-items: center;
-}
-
-.locations-ngIf {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 75px;
-}
-
-.locations-button {
-    width: 405px;
-    height: 50px;
-    z-index: 10;
-    font-family: 'REM';
-    font-weight: 800;
-    border-radius: 5px;
-    border: 1px solid rgba(133, 133, 133, 0.377);
-}
-
-.locations-button:hover{
-    cursor: pointer;
-    background-color: #bec1c2;
-}
-
-.input-searchCity {
-    font-family: 'REM';
-    font-weight: 800;
-    width: 400px;
-    height: 50px;
-    border-radius: 10px;
-    margin: 20px;
-    font-size: 15px;
-}
-
-.input-searchCity:focus {
-    outline: none;
-}
-
-
-.div-menormayor {
-    width: 100%;
-    background-color: #313131;
-    display: flex;
-    justify-content: center;
-}
 
 .div-menormayor>button {
     width: 300px;

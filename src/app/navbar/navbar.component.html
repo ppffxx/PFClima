@@ -1,0 +1,15 @@
+<div class="div-navbar">
+
+  <button routerLink="/" class="navbar-button">INICIO</button>
+  <button routerLink="/cities" class="navbar-button">CIUDADES</button>
+  
+
+    <input type="text" name="" id="" placeholder="Ingresa tu ciudad" [(ngModel)]="inputValue" (input)="searchLocation()" class="input-searchCity">
+    <div *ngIf="locations != null" class="locations-ngIf">
+      <button *ngFor="let location of locations" (click)="getDataBySelectedV2(location[0], location)" class="locations-button">
+        {{location[1]}} ({{location[2]}}), {{location[3]}}
+      </button>
+    </div>
+  </div>
+
+

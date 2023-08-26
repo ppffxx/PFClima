@@ -1,0 +1,16 @@
+<div class="div-menormayor">
+    <button (click)="sort()">Ordenar por {{sortOrderAscending? 'mayor': 'menor'}} temperatura</button>
+</div>
+
+<div class="container-clima">
+    <div *ngFor="let data of allData" class="cards-clima">
+        <div class="header-nombres">
+            <h1>{{data?.location?.name}}</h1>
+            <h2>{{data?.location?.province}}</h2>
+        </div>
+        <div class="div-datos" [ngClass]="getClassByDescription(data?.weather?.description)">
+            <img src="http://ws1.smn.gob.ar/sites/all/themes/smn/img/weather-icons/{{geticonByDescription(data?.weather?.description, data.weather.id)}}.png" alt="Imagen del clima" class="icon-clima">
+            <h1>{{data.temperature}} ºC <!--<ng-container *ngIf="data.feels_like !== null"> (ST: {{ data.feels_like }} ºC)</ng-container>--></h1>
+            <h3>{{data.weather.description}}</h3>
+        </div>
+    </div>
